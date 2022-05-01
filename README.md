@@ -46,6 +46,7 @@ This was originally a simple project to practice recursion and only later change
 ## Getting Started
 
 Just run the .exe file after cloning/downloading the repo. If that is too slow just run ```run.py``` file after installing all dependencies
+If you don't trust the .exe file just compile it yourself with auto-py-to-exe, select run.py as a singular file, make it console-based and compile. That's all
 
 ### Afterword
 
