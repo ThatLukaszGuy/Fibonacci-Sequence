@@ -8,15 +8,15 @@ class Fibonacci():
     
     def fibonacci(self,n, cache={}):
         if n in cache:
-            ans = cache[n]
+            value = cache[n]
         elif n <= 2:
-            ans = 1
-            cache[n] = ans
+            value = 1
+            cache[n] = value
         else:
-            ans = self.fibonacci(self,n - 2) + self.fibonacci(self,n - 1)
-            cache[n] = ans
+            value = self.fibonacci(self,n - 2) + self.fibonacci(self,n - 1)
+            cache[n] = value
 
-        return ans
+        return value
 
 
     # get next and previous value
