@@ -25,7 +25,7 @@ This was originally a simple project to practice recursion and only later change
 <ul>
     <li> Generating a certain amount of numbers from the fibonacci sequence </li>
     <li> Getting the value of the next number in the sequence </li>
-    <li> Getting the value of the next number in the sequence </li>
+    <li> Getting the value of the previous number in the sequence </li>
     <li> Access a specific postion (e.g. 7th position) and getting its value </li>
     <li> Access a value that is between two values in the sequence (e.g get the number 233 that is between 144 and 377) </li>
     <li> Get list of neighboring previous or following values </li> 
