@@ -13,7 +13,7 @@ class Fibonacci():
             value = 1
             cache[n] = value
         else:
-            value = self.fibonacci(self,n - 2) + self.fibonacci(self,n - 1)
+            value = self.fibonacci(n - 2) + self.fibonacci(n - 1)
             cache[n] = value
 
         return value
@@ -50,7 +50,7 @@ class Fibonacci():
     def visualize(self, amount):
         vals = []
         for i in range(1, amount + 1):
-            n = self.fibonacci(self, i)
+            n = self.fibonacci(i)
             vals.append(n)
         else:
             plt.plot(vals, 'bo', vals, 'k')

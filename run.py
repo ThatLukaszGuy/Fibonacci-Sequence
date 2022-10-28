@@ -1,10 +1,13 @@
 import questionary
 from colorama import Fore, Style,init
-from fibonacci import Fibonacci as Fi
+from fibonacci import Fibonacci
 import time
 
 # needed for colorama
 init()
+
+# class init
+Fi = Fibonacci()
 
 # color config for shortcuts in print statements
 s = Style.RESET_ALL
@@ -24,24 +27,24 @@ def check_block(answer):
     if answer == 'Show x amount of fibonacci values (starting at 1)':
         sequence_num = int(input('State how many numbers of the sequence you want shown: '))
         for n in range(1, sequence_num + 1):
-            print(f"{f['y']}{sb} {n} {s}: {f['g']}{sb}{Fi.fibonacci(Fi,n)} {s}{chr(10)} {f['y']}{sb}Ratio: {s}{f['g']}{sb}{Fi.fibonacci(Fi,n + 1) / Fi.fibonacci(Fi,n)} {s}{chr(10)}") # it looks weird due to the colors
+            print(f"{f['y']}{sb} {n} {s}: {f['g']}{sb}{Fi.fibonacci(n)} {s}{chr(10)} {f['y']}{sb}Ratio: {s}{f['g']}{sb}{Fi.fibonacci(n + 1) / Fi.fibonacci(n)} {s}{chr(10)}") # it looks weird due to the colors
 
         else:
             confirm()        
 
     elif answer == 'Get previous sequence value':
         n = int(input('Input the number you want to get the previous position of: '))
-        print(f"{f['m']}{sb}Previous Value is approx.{s} :{f['c']}{sb} {str(Fi.previous_num(Fi, n))} {s}")
+        print(f"{f['m']}{sb}Previous Value is approx.{s} :{f['c']}{sb} {str(Fi.previous_num(n))} {s}")
         confirm()
 
     elif answer == 'Get next sequence value':
         n = int(input('Input the number you want to get the next position of: '))
-        print(f"{f['m']}{sb}Next Value is approx.{s} :{f['c']}{sb} {str(Fi.next_num(Fi, n))} {s}")
+        print(f"{f['m']}{sb}Next Value is approx.{s} :{f['c']}{sb} {str(Fi.next_num(n))} {s}")
         confirm()
 
     elif answer == "Access certain position in the sequence and it's ratio (e.g. 7th position has the value of 13)":
         search_index = int(input("Access certain position in the sequence and it's ratio (e.g. 7th position has the value of 13): "))
-        print(f"{f['m']}{sb}Value at postion {search_index}{s}:{f['c']}{sb} {Fi.fibonacci(Fi,search_index)} {s},{f['m']}{sb} ratio:{s} {f['c']}{sb} {Fi.fibonacci(Fi,search_index + 1) / Fi.fibonacci(Fi,search_index)}{s}")
+        print(f"{f['m']}{sb}Value at postion {search_index}{s}:{f['c']}{sb} {Fi.fibonacci(search_index)} {s},{f['m']}{sb} ratio:{s} {f['c']}{sb} {Fi.fibonacci(search_index + 1) / Fi.fibonacci(search_index)}{s}")
         confirm()
 
     elif answer == 'Get value between two different values that are one apart (e.g. 144, 377 => 233)':
@@ -52,7 +55,7 @@ def check_block(answer):
     elif answer == 'Get list of neighboring previous or following values':
         try:
             val, amount, direction = [int(n) for n in input("input the sequence value (e.g 144), how many neighboring values to print (e.g. 10) and whether to print the previous or following values (1 = following, 0 = previous)  (example input: 144 10 0) : ").split(' ')]
-            list = Fi.get_neighbor_vals(Fi, val, amount, direction)      
+            list = Fi.get_neighbor_vals(val, amount, direction)      
             print(f"{f['m']}{sb}Neighboring values in chosen direction starting from nearest{s}")
             count = 1
             for i in list:
@@ -65,7 +68,7 @@ def check_block(answer):
     
     elif answer == 'Visualize x amount of fibonacci values':
         vis = int(input('State how many values of the sequence you want shown: '))
-        Fi.visualize(Fi, vis)
+        Fi.visualize(vis)
         confirm()
     else:
         pass
